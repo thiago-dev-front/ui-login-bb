@@ -1,0 +1,8 @@
+<!-- cart.component.html -->
+<h2>Shopping Cart</h2>
+<ul>
+  <li *ngFor="let item of cartItems">{{ item }}
+    <button (click)="removeFromCart(item)">Delete</button>
+  </li>
+  <button *ngIf="cartItems.length"  (click)="clearAll()">Limpar todos</button>
+</ul>
