@@ -1,0 +1,7 @@
+// Estilos de layout de grade
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; // Exemplo de grade de duas colunas
+  grid-gap: 16px; // Espaçamento entre células da grade
+}
+

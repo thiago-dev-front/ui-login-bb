@@ -1,0 +1,7 @@
+// Importe os estilos globais
+@import '../styles/base/reset.scss';
+@import '../styles/base/typography';
+@import '../styles/base/global';
+
+// Importe as variáveis globais do arquivo dentro da pasta abstracts
+@import '../styles/abstracts/variables';

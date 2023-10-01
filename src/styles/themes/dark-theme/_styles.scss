@@ -1,0 +1,9 @@
+// Import variables for Dark Theme
+@import 'variables';
+
+// Styles for Dark Theme
+body {
+  background-color: $primary-color;
+  color: $secondary-color;
+  // ...
+}

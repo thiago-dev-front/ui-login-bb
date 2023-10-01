@@ -1,0 +1,11 @@
+// Mixin para centralizar elementos horizontalmente e verticalmente
+@mixin center-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin para criar uma sombra elevada
+@mixin elevation($level) {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1 * $level);
+}

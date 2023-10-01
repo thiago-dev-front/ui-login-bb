@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -8,9 +9,12 @@ export class CartService {
   private cartItems: string[] = [];
   cartSubject = new BehaviorSubject<string[]>(this.cartItems);
 
+  constructor(private router: Router) {}
+
   addToCart(item: string) {
     this.cartItems.push(item);
     this.cartSubject.next(this.cartItems);
+    this.router.navigate(['/cart']);
   }
 
   removeItem(item: string) {
