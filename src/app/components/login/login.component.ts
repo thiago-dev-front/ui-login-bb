@@ -10,17 +10,16 @@ import { CpfValidator } from 'src/app/validators/cpf.validator';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   steps: 'cpf' | 'password' = 'cpf';
-  isCPFValid: boolean | undefined = undefined;
+  isCPFValid: boolean | undefined;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
       cpf: ['', [
         Validators.required,
         Validators.minLength(11),
-        CpfValidator.isValidCpf(),
-        , ,]],
-        password: ['', [Validators.required , Validators.minLength(6)]],
-        stayConnected: [false],
+        CpfValidator.isValidCpf(),]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      stayConnected: [false],
     });
 
     this.loginForm.get('cpf')?.valueChanges.subscribe(() => {
