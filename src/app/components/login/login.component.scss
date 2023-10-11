@@ -12,15 +12,18 @@
       align-items: center;
       max-width: 720px;
       height: calc(100vh - 105px);
+
       @media (max-width: 768px) {
         height: inherit;
       }
 
       &__info {
         max-width: 360px;
+
         @media (max-width: 768px) {
           max-width: 340px;
         }
+
         h2 {
           font-size: 32px;
         }
@@ -43,7 +46,7 @@
             color: #282313;
           }
 
-          input:not(.additional-options input) {
+          input:not(.login__content__access__options input) {
             min-width: 360px;
             min-height: 44px;
             border: 1px solid #CFCFCF;
@@ -55,6 +58,7 @@
             color: #767A86;
             font-size: 16px;
             font-weight: 400px;
+
             @media (max-width: 768px) {
               min-width: 340px;
             }
@@ -77,9 +81,11 @@
             font-size: 14px;
             font-weight: 700;
             margin: 20px 0 30px;
+
             @media (max-width: 768px) {
               min-width: 340px;
             }
+
             cursor: pointer;
 
             &:disabled {
@@ -90,28 +96,7 @@
           }
         }
 
-        .additional-options {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 20px;
 
-          input {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-            position: relative;
-            top: 2px;
-            border: 1px solid #D0D5DD;
-          }
-
-          a {
-            font-size: 14px;
-            text-decoration: none;
-            color: #364DFD;
-            font-weight: 600;
-          }
-        }
       }
 
       &__not-account {
@@ -129,6 +114,31 @@
             }
           }
         }
+      }
+
+      &__options {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        input {
+          width: 16px;
+          height: 16px;
+          margin-right: 5px;
+          position: relative;
+          top: 2px;
+          border: 1px solid #D0D5DD;
+        }
+
+        a {
+          font-size: 14px;
+          text-decoration: none;
+          color: #364DFD;
+          font-weight: 600;
+        }
+
       }
 
       &__footer {
@@ -152,6 +162,7 @@
         right: 0;
         max-width: 720px;
         height: 100vh;
+
         @media (max-width: 768px) {
           display: none;
         }

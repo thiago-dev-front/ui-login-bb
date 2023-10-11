@@ -9,7 +9,7 @@ import { CpfValidator } from 'src/app/validators/cpf.validator';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  etapa: 'cpf' | 'senha' = 'cpf';
+  steps: 'cpf' | 'password' = 'cpf';
   isCPFValid: boolean | undefined = undefined;
 
   constructor(private formBuilder: FormBuilder) {
@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
         Validators.minLength(11),
         CpfValidator.isValidCpf(),
         , ,]],
-      senha: ['', [Validators.required , Validators.minLength(6)]],
-      manterConectado: [false],
+        password: ['', [Validators.required , Validators.minLength(6)]],
+        stayConnected: [false],
     });
 
     this.loginForm.get('cpf')?.valueChanges.subscribe(() => {
@@ -41,16 +41,16 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
-    if (this.etapa === 'cpf') {
-      this.etapa = 'senha';
+    if (this.steps === 'cpf') {
+      this.steps = 'password';
     } else {
       // Verifique se o formulário é válido antes de prosseguir
       if (this.loginForm.valid) {
         // Recupere os valores do formulário
         const cpf = this.loginForm.get('cpf')?.value;
         const senha = this.loginForm.get('senha')?.value;
-        const manterConectado = this.loginForm.get('manterConectado')?.value;
-        const message = `CPF: ${cpf}\nSenha: ${senha}\nMantendo Conectado: ${manterConectado ? 'Sim' : 'Não'}`;
+        const stayConnected = this.loginForm.get('stayConnected')?.value;
+        const message = `CPF: ${cpf}\nSenha: ${senha}\nMantendo Conectado: ${stayConnected ? 'Sim' : 'Não'}`;
 
         alert(message)
         // Aqui você pode enviar os valores para um serviço de autenticação
