@@ -12,13 +12,15 @@
       align-items: center;
       max-width: 720px;
       height: calc(100vh - 105px);
-      // @media (max-width: 1200px) {
-      //   height: auto;
-      // }
+      @media (max-width: 768px) {
+        height: inherit;
+      }
 
       &__info {
         max-width: 360px;
-
+        @media (max-width: 768px) {
+          max-width: 340px;
+        }
         h2 {
           font-size: 32px;
         }
@@ -53,6 +55,9 @@
             color: #767A86;
             font-size: 16px;
             font-weight: 400px;
+            @media (max-width: 768px) {
+              min-width: 340px;
+            }
 
             &::placeholder {
               color: #767A86;
@@ -72,6 +77,9 @@
             font-size: 14px;
             font-weight: 700;
             margin: 20px 0 30px;
+            @media (max-width: 768px) {
+              min-width: 340px;
+            }
             cursor: pointer;
 
             &:disabled {
@@ -144,10 +152,9 @@
         right: 0;
         max-width: 720px;
         height: 100vh;
-        // @media (max-width: 1200px) {
-        //   height: auto;
-        //   max-width: 100%;
-        // }
+        @media (max-width: 768px) {
+          display: none;
+        }
 
       }
     }

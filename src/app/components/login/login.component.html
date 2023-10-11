@@ -27,8 +27,7 @@
               </label>
               <a href="#" class="forgot-password-link">Esqueceu a senha?</a>
             </div>
-            <button type="submit">Entrar</button>
-
+            <button type="submit" [disabled]="loginForm.get('senha')?.invalid">Entrar</button>
           </div>
         </form>
         <div class="login__content__access__not-account">

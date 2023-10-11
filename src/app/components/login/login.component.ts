@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
         Validators.minLength(11),
         CpfValidator.isValidCpf(),
         , ,]],
-      senha: ['', [Validators.required]],
+      senha: ['', [Validators.required , Validators.minLength(6)]],
       manterConectado: [false],
     });
 
