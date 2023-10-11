@@ -11,17 +11,24 @@
           <h2>Entrar</h2>
           <p>Entre para acompanhar seu desempenho e checar seus números da sorte!</p>
         </div>
-        <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()" autocomplete="off">
           <div *ngIf="etapa === 'cpf'">
             <label for="cpf">Seu CPF:</label>
-            <input type="text" id="cpf" formControlName="cpf" placeholder="000.000.000-00">
+            <input type="text" id="cpf" formControlName="cpf" placeholder="000.000.000-00" (input)="formatCPF($event)">
             <button type="submit" [disabled]="!isCPFValid">Avançar</button>
           </div>
 
           <div *ngIf="etapa === 'senha'">
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" formControlName="senha">
-            <button type="submit">Login</button>
+            <input type="password" id="senha" formControlName="senha" placeholder="Digite sua senha">
+            <div class="additional-options">
+              <label class="checkbox-label">
+                <input type="checkbox" formControlName="manterConectado"> Mantenha Conectado
+              </label>
+              <a href="#" class="forgot-password-link">Esqueceu a senha?</a>
+            </div>
+            <button type="submit">Entrar</button>
+
           </div>
         </form>
         <div class="login__content__access__not-account">

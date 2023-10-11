@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { CartService } from './services/cart.service';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMaskModule.forRoot()
+
   ],
   providers: [CartService],
   bootstrap: [AppComponent]

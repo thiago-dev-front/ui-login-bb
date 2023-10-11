@@ -19,30 +19,52 @@ export class LoginComponent implements OnInit {
         Validators.minLength(11),
         CpfValidator.isValidCpf(),
         , ,]],
-      senha: ['', [Validators.required]]
+      senha: ['', [Validators.required]],
+      manterConectado: [false],
     });
-
-    console.log("CPF válido: " + this.loginForm.get('cpf')?.valid);
-
 
     this.loginForm.get('cpf')?.valueChanges.subscribe(() => {
       this.isCPFValid = this.loginForm.get('cpf')?.valid;
-      console.log(this.isCPFValid);
-
     });
   }
 
   ngOnInit(): void {
   }
 
+  formatCPF(event: any) {
+    const value = event.target.value;
+    const digits = value.replace(/\D/g, '');
+    if (digits.length <= 11) {
+      event.target.value = digits
+        .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    }
+  }
 
   submitForm() {
     if (this.etapa === 'cpf') {
       this.etapa = 'senha';
     } else {
-      // Implemente a lógica de autenticação (verificar CPF e senha).
-      // Você pode fazer isso aqui e fornecer feedback ao usuário.
+      // Verifique se o formulário é válido antes de prosseguir
+      if (this.loginForm.valid) {
+        // Recupere os valores do formulário
+        const cpf = this.loginForm.get('cpf')?.value;
+        const senha = this.loginForm.get('senha')?.value;
+        const manterConectado = this.loginForm.get('manterConectado')?.value;
+        const message = `CPF: ${cpf}\nSenha: ${senha}\nMantendo Conectado: ${manterConectado ? 'Sim' : 'Não'}`;
+
+        alert(message)
+        // Aqui você pode enviar os valores para um serviço de autenticação
+        // Substitua este trecho de código pela lógica de autenticação real
+        // Exemplo de como enviar os dados usando um serviço fictício:
+        // this.authService.authenticate(cpf, senha, manterConectado)
+        //   .subscribe((response) => {
+        //     // Faça algo com a resposta do serviço, como redirecionar o usuário ou exibir mensagens
+        //   });
+      } else {
+        // O formulário não é válido, você pode exibir mensagens de erro ou realizar outras ações
+      }
     }
   }
+
 
 }
