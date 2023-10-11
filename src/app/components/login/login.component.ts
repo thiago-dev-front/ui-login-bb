@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CpfValidator } from 'src/app/validators/cpf.validator';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+  loginForm: FormGroup;
   etapa: 'cpf' | 'senha' = 'cpf';
+  isCPFValid: boolean | undefined = undefined;
+
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      cpf: ['', [Validators.required]],
+      cpf: ['', [
+        Validators.required,
+        Validators.minLength(11),
+        CpfValidator.isValidCpf(),
+        , ,]],
       senha: ['', [Validators.required]]
+    });
+
+    console.log("CPF válido: " + this.loginForm.get('cpf')?.valid);
+
+
+    this.loginForm.get('cpf')?.valueChanges.subscribe(() => {
+      this.isCPFValid = this.loginForm.get('cpf')?.valid;
+      console.log(this.isCPFValid);
+
     });
   }
 
