@@ -1,0 +1,40 @@
+<section class="login">
+  <header>
+    <img src="../../../assets/images/logo_visa.svg" alt="" style="padding: 30px;">
+  </header>
+  <div class="login__content">
+
+    <div class="login__content__access__container">
+      <div class="login__content__access">
+        <div class="login__content__access__info">
+          <img src="../../../assets/images/back_arrow.svg" alt="">
+          <h2>Entrar</h2>
+          <p>Entre para acompanhar seu desempenho e checar seus números da sorte!</p>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+          <div *ngIf="etapa === 'cpf'">
+            <label for="cpf">Seu CPF:</label>
+            <input type="text" id="cpf" formControlName="cpf" placeholder="000.000.000-00">
+            <button type="submit" >Avançar</button>
+          </div>
+
+          <div *ngIf="etapa === 'senha'">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" formControlName="senha">
+            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+          </div>
+        </form>
+        <div class="login__content__access__not-account">
+          <p>Ainda não possui cadastro? <a href="#"><strong>Crie sua conta</strong></a></p>
+        </div>
+        <div class="login__content__access__footer">
+          <span>DOTZ - CNPJ 10.221.279/0001-97. Parceria com VISA DO BRASIL EMPREENDIMENTOS LTDA. CNPJ/ME n.º 31.551.765/0001-43 e BANCO DO BRASIL SA CNPJ/ME n.º 00.000.000/0001-91</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="login__content__bg">
+      <img src="../../../assets/images/bg_login.png" alt="" >
+    </div>
+  </div>
+</section>

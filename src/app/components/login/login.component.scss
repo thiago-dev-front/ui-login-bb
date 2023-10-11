@@ -1,0 +1,114 @@
+.login {
+  &__content {
+    max-width: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__access {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 720px;
+      height: calc(100vh - 105px);
+
+      &__info {
+        max-width: 360px;
+
+        h2 {
+          font-size: 32px;
+        }
+
+        p {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+          margin: 20px 0;
+          color: #767A86;
+        }
+      }
+
+      form {
+        div {
+          label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #282313;
+          }
+
+          input {
+            min-width: 360px;
+            min-height: 44px;
+            border: 1px solid #CFCFCF;
+            box-shadow: 0px 1px 2px 0px #1018280D;
+            border-radius: 6px;
+            outline: none;
+            margin-top: 6px;
+            padding: 15px;
+
+            &::placeholder {
+              color: #767A86;
+              font-size: 16px;
+              font-weight: 400px;
+            }
+          }
+
+          button {
+            display: block;
+            min-width: 360px;
+            min-height: 48px;
+            border: 1px solid #465EFF;
+            border-radius: 5px;
+            background: #465EFF;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 20px 0 30px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &__not-account {
+        p {
+          font-size: 14px;
+          font-weight: 400px;
+          color: #767A86;
+
+          a {
+            text-decoration: none;
+
+            strong {
+              font-weight: 600;
+              color: #465EFF;
+            }
+          }
+        }
+      }
+
+      &__footer {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 20px;
+
+        span {
+          font-size: 8px;
+          font-weight: 400;
+          color: #767A86;
+        }
+      }
+    }
+
+    &__bg {
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 720px;
+        height: 100vh;
+      }
+    }
+  }
+}
